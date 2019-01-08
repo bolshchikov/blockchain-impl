@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run prettier-watch",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "prettier-watch": "onchange '**/*.ts' -- prettier --write {{changed}}"
   },
   "repository": {
@@ -26,8 +26,11 @@
   "homepage": "https://github.com/bolshchikov/blockchain-js#readme",
   "devDependencies": {
     "@types/crypto-js": "^3.1.43",
+    "@types/jest": "^23.3.12",
+    "jest": "^23.6.0",
     "onchange": "^5.2.0",
     "prettier": "^1.15.3",
+    "ts-jest": "^23.10.5",
     "typescript": "^3.2.2"
   },
   "dependencies": {
