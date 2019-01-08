@@ -1,0 +1,32 @@
+{
+  "name": "blockchain-js",
+  "version": "1.0.0",
+  "description": "Simple blockchain implementation in JavaScript",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "npm run prettier-watch",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier-watch": "onchange '**/*.ts' -- prettier --write {{changed}}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bolshchikov/blockchain-js.git"
+  },
+  "keywords": [
+    "blockchain",
+    "javascript",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bolshchikov/blockchain-js/issues"
+  },
+  "homepage": "https://github.com/bolshchikov/blockchain-js#readme",
+  "devDependencies": {
+    "onchange": "^5.2.0",
+    "prettier": "^1.15.3",
+    "typescript": "^3.2.2"
+  }
+}
