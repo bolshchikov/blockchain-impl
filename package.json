@@ -25,8 +25,12 @@
   },
   "homepage": "https://github.com/bolshchikov/blockchain-js#readme",
   "devDependencies": {
+    "@types/crypto-js": "^3.1.43",
     "onchange": "^5.2.0",
     "prettier": "^1.15.3",
     "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
   }
 }
