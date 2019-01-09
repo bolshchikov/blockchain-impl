@@ -6,8 +6,9 @@ import (
 
 // Blockchain is a group of blocks linked together
 type Blockchain struct {
-	chain  []*block.Block
-	length int
+	difficulty int
+	chain      []*block.Block
+	length     int
 }
 
 // Len returns the length of the blockchain
@@ -23,6 +24,7 @@ func (bc *Blockchain) AddBlock(data string) {
 		data,
 		prevBlock.Hash,
 	)
+	newBlock.MineBlock(bc.difficulty)
 	bc.chain = append(bc.chain, newBlock)
 	bc.length++
 }
@@ -39,8 +41,10 @@ func addGenesisBlock(bc *Blockchain) {
 }
 
 // New returns an instance of a blockchain
-func New() *Blockchain {
-	bc := Blockchain{}
+func New(difficulty int) *Blockchain {
+	bc := Blockchain{
+		difficulty: difficulty,
+	}
 	addGenesisBlock(&bc)
 	return &bc
 }
@@ -50,7 +54,7 @@ func IsValidChain(bc *Blockchain) bool {
 	for i := 1; i < bc.length; i++ {
 		currBlock := *bc.chain[i]
 		prevBlock := *bc.chain[i-1]
-		currHash := block.CalculateHash(currBlock.Index, currBlock.Timestamp, currBlock.Data, currBlock.PrevHash)
+		currHash := currBlock.CalculateHash()
 		if currBlock.Hash != currHash {
 			return false
 		}
